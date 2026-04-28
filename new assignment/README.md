@@ -36,7 +36,7 @@ ___
 ![Execution Run 2](docs/run2.jpg)
 
   Test Run 3
-![Execution Run 3](docsrun3.jpg)
+![Execution Run 3](docs/run3.jpg)
 ___
 ## E. REflection
 Through this experiment, I observed the clear difference between theoretical Big-O complexity and practical execution. While Bubble Sort is easy to implement, its $O(n^2)$ nature makes it impractical for larger datasets, as seen in the dramatic jump in nanoseconds when moving from 100 to 1000 elements. Merge Sort, despite its higher memory overhead, proved to be far superior for scaling.
