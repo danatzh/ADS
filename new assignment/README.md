@@ -50,3 +50,5 @@ ___
 + **Does it match Big-O?** Yes. Bubble Sort shows $O(n^2)$ behavior on random data, while Merge Sort stays closer to $O(n \log n)$.
 + **Search efficiency:** Linear Search is very fast but its time stays relatively flat because 1000 elements is still a small number for a simple $O(n)$ check.
 + **Why Binary Search requires sorted array?** It requires sorting because it splits the range in half. If the data isn't ordered, we wouldn't know which half to discard.
+___
+## **P.S I wrote this readme all by myself! Huge thanks for adam-p. Credit: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet**
