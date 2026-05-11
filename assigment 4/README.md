@@ -31,9 +31,9 @@ ____
 **Execution Time Comparison Table**
 | Vertices     | BFS Time (ns)  | DFS Time (ns)  |
 | ------------ | -------------- | -------------- |
-| 10           | 9250           | 4208           |
-| 30           | 26792          | 12458          |
-| 100          | 60500          | 44958          |
+| 10           | 13417          | 5834           |
+| 30           | 19750          | 11375          |
+| 100          | 52667          | 41625          |
 ### Observations and Patterns
 + Scaling: As the number of vertices increases, the execution time grows linearly, which aligns with the theoretical ‭‬‭‬‭‬‭‬‭‬ complexity.
 + Efficiency: In smaller graphs, DFS often performs slightly faster due to the lower overhead of recursion compared to the object management required for a Queue in BFS.
