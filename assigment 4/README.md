@@ -55,4 +55,42 @@ ______
 	5.	What are the limitations of DFS? DFS can cause a StackOverflowError if the graph is extremely deep, and it does not guarantee the shortest path.
 ## G. Reflection Section
 During this assignment, I learned how to translate theoretical graph concepts into a functional Java implementation using the Collections Framework. Managing an Adjacency List provided a deep understanding of why HashMap is efficient for graph representation. The most challenging part was ensuring the visited set was correctly updated to prevent infinite loops in cyclic graphs. This project improved my ability to analyze algorithm performance using real-world metrics like nanoseconds.
+______
+## Explanation: Dijkstra’s Algorithm.
+
+This project features a custom implementation of **Dijkstra's Algorithm** to solve the single-source shortest path problem on a directed, weighted graph.
+
+### 1. The Core Concept (How it Works)
+The algorithm operates on a **greedy approach**. Starting from a designated source vertex, it iteratively locks in the closest unvisited node, explores its neighbors, and updates their shortest known distances. 
+
+### 2. Step-by-Step Mechanism in Code
+
+The implementation is broken down into three main phases inside the `dijkstra(Vertex start)` method:
+
+* **Phase 1: Initialization**
+    * An array `distances` is created to track the shortest path to each node. It is initially filled with "infinity" (`Integer.MAX_VALUE`), representing that all other nodes are currently undiscovered.
+    * The starting node's distance is set to `0` (`distances[startId] = 0`), as the cost to stay at the origin is zero.
+    * A boolean array `visited` keeps track of nodes whose absolute shortest path has been finalized.
+
+* **Phase 2: Node Selection (Greedy Step)**
+    * The algorithm scans the graph using simple loops (without a priority queue, as per the constraints) to find the unvisited node with the absolute **minimum distance** value.
+    * Once found, this node is marked as `visited = true`.
+
+* **Phase 3: Edge Relaxation**
+    * For the currently selected node $u$, the algorithm examines all its outgoing edges to neighboring nodes $v$.
+    * It checks if the path to $v$ through $u$ is shorter than the previously recorded distance:
+        $$\text{if } (Dist[u] + Weight(u, v) < Dist[v]) \implies Dist[v] = Dist[u] + Weight(u, v)$$
+    * If this condition is met, the distance is updated (relaxed). This allows the algorithm to dynamically find optimal multi-hop routes.
+______
+### 3. Practical Verification (`runDijkstraBonus`)
+
+To prove the correctness of the algorithm, a weighted graph is constructed in `Experiment.java` with the following routing dilemma:
+* A direct edge exists from node `0` to node `1` with a heavy cost of **6**.
+* An alternative path goes from `0` $\rightarrow$ `3` (cost **1**) and then `3` $\rightarrow$ `1` (cost **2**).
+
+When executed, Dijkstra's algorithm successfully bypasses the direct route, recognizing that the multi-hop path via node `3` yields a more optimal total shortest distance of **3**.
+
+### 4. Complexity Note
+Because the minimum distance node is looked up via a standard loop over an array rather than a heap-based priority queue, the time complexity of this implementation is $O(V^2)$, where $V$ is the number of vertices. This is optimal and efficient for the scope of this laboratory assignment.
+__________
 ## **P.S I wrote this readme all by myself! Huge thanks for adam-p. Credit: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet**
